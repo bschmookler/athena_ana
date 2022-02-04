@@ -18,7 +18,7 @@ You have now entered into the container and can begin work.
 
 Clone Repositories
 ------------------
-As discussed [here](https://eic.phy.anl.gov/tutorials/eic_tutorial/getting-started/quickstart#step-2-clone-the-repos) , first clone the repositories for the beamline and the athena detector: 
+As discussed [here](https://eic.phy.anl.gov/tutorials/eic_tutorial/getting-started/quickstart#step-2-clone-the-repos), first clone the repositories for the beamline and the athena detector: 
 
 git clone https://eicweb.phy.anl.gov/EIC/detectors/athena.git
 
