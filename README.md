@@ -3,11 +3,11 @@
 
 ATHENA Software Container
 -------------------------
-As described [here](https://eic.phy.anl.gov/tutorials/eic_tutorial/getting-started/quickstart/#step-1-setup-the-eic-software-container-jug_xl):
+As described [here](https://eic.phy.anl.gov/tutorials/eic_tutorial/getting-started/quickstart/#step-1-setup-the-eic-software-container-jug_xl), run the following commands to enter the software container:
 
-mkdir ~/eic
+mkdir eic
 
-cd ~/eic
+cd eic
 
 curl https://eicweb.phy.anl.gov/containers/eic_container/-/raw/master/install.sh | bash
 
@@ -17,4 +17,10 @@ curl https://eicweb.phy.anl.gov/containers/eic_container/-/raw/master/install.sh
 
 Clone Repositories
 ------------------
-You will need
+As discussed here(https://eic.phy.anl.gov/tutorials/eic_tutorial/getting-started/quickstart#step-2-clone-the-repos) , first clone the repositories for the beamline and the athena detector: 
+
+git clone https://eicweb.phy.anl.gov/EIC/detectors/athena.git
+
+git clone https://eicweb.phy.anl.gov/EIC/detectors/ip6.git
+
+ln -s ../ip6/ip6 athena/ip6
