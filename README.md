@@ -13,6 +13,7 @@ curl https://eicweb.phy.anl.gov/containers/eic_container/-/raw/master/install.sh
 
 ./eic-shell
 
+You have now entered into the container and can begin work.
 <br/>
 
 Clone Repositories
