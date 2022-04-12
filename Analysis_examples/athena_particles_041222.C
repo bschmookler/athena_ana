@@ -116,9 +116,8 @@ void athena_particles(){
   for(int iFile=1;iFile<=1;iFile++){
 
     //f1 = new TFile(Form("input/pythia8NCDIS_18x275_minQ2=10_beamEffects_xAngle=-0.025_hiDiv_vtxfix_%d.root",iFile));
-    //f1 = new TFile("input/rec-clusterfix.root");
-    f1 = new TFile("rec_output.edm4hep.root");
-     tree = (TTree*) f1->Get("events");
+    f1 = new TFile("input/rec-clusterfix.root");
+    tree = (TTree*) f1->Get("events");
 
     //Leaves
     TLeaf *mc_px,*mc_py,*mc_pz;
@@ -127,17 +126,17 @@ void athena_particles(){
     TLeaf *rec_px,*rec_py,*rec_pz,*rec_E;
     TLeaf *rec_pid;
 
-    mc_px = (TLeaf*) tree->GetLeaf("MCParticles","MCParticles.momentum.x");
-    mc_py = (TLeaf*) tree->GetLeaf("MCParticles","MCParticles.momentum.y");
-    mc_pz = (TLeaf*) tree->GetLeaf("MCParticles","MCParticles.momentum.z");
-    mc_status = (TLeaf*) tree->GetLeaf("MCParticles","MCParticles.generatorStatus");
-    mc_pid = (TLeaf*) tree->GetLeaf("MCParticles","MCParticles.PDG");
-    mc_mass = (TLeaf*) tree->GetLeaf("MCParticles","MCParticles.mass");
-    rec_px = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.momentum.x");
-    rec_py = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.momentum.y");
-    rec_pz = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.momentum.z");
+    mc_px = (TLeaf*) tree->GetLeaf("mcparticles","mcparticles.ps.x");
+    mc_py = (TLeaf*) tree->GetLeaf("mcparticles","mcparticles.ps.y");
+    mc_pz = (TLeaf*) tree->GetLeaf("mcparticles","mcparticles.ps.z");
+    mc_status = (TLeaf*) tree->GetLeaf("mcparticles","mcparticles.genStatus");
+    mc_pid = (TLeaf*) tree->GetLeaf("mcparticles","mcparticles.pdgID");
+    mc_mass = (TLeaf*) tree->GetLeaf("mcparticles","mcparticles.mass");
+    rec_px = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.p.x");
+    rec_py = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.p.y");
+    rec_pz = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.p.z");
     rec_E = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.energy");
-    rec_pid = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.PDG");
+    rec_pid = (TLeaf*) tree->GetLeaf("ReconstructedParticles","ReconstructedParticles.pid");
 
     int nevents = tree->GetEntries();
     cout<<"Beginning Analysis of file "<<iFile<<"!"<<endl;
@@ -145,8 +144,7 @@ void athena_particles(){
   
     // Loop over all events
     for(int iEvent=0;iEvent<nevents;iEvent++){
-      //if(iEvent%10000==0) 
-      	cout<<"Events Analysed = "<<iEvent<<"!"<<endl;
+      //if(iEvent%10000==0) cout<<"Events Analysed = "<<iEvent<<"!"<<endl;
       tree->GetEntry(iEvent);
   
       //Generated Particles
