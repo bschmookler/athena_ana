@@ -15,9 +15,38 @@ curl https://eicweb.phy.anl.gov/containers/eic_container/-/raw/master/install.sh
 You have now entered into the container and can begin work.
 <br/>
 
-Clone Repositories
-------------------
-As discussed [here](https://eic.phy.anl.gov/tutorials/eic_tutorial/getting-started/quickstart#step-2-clone-the-repos), first clone the repositories for the beamline and the athena detector: 
+Using the default detector and reconstruction setup
+---------------------------------------------------
+In the container, first type
+> source /opt/detector/setup.sh
+
+Running the simulation consists of 2 steps. First, generated particles are passed through the detector and an output ROOT file is created; second, the output ROOT file of the detector simulation step is used as the input to the reconstruction software.
+
+<br/>
+
+To throw 100 single muon events through the detector, do the following:
+> npsim --compactFile $DETECTOR_PATH/athena.xml --enableGun --gun.distribution uniform --numberOfEvents 100 --outputFile output.edm4hep.root
+
+To instead generated 100 single particle pi+ events, do the following:
+> npsim --compactFile $DETECTOR_PATH/athena.xml --enableGun --gun.distribution uniform --gun.particle pi+ --numberOfEvents 100 --outputFile output.edm4hep.root
+
+If you have the output of an event generator that is saved in HEPMC format, then do the following to run events from that generator through the simulation:
+> npsim --compactFile $DETECTOR_PATH/athena.xml --numberOfEvents 25 --inputFiles input.hepmc --outputFile output.edm4hep.root
+
+In all these cases, an output file called <i>output.edm4hep.root</i> is created by the detector simulation. This file contains information on the generated and secondary particles, the hit positions in the tracking detectors, and the hit positions and energy deposited in the calorimeter shells.
+
+<br/>
+
+To then run the output of the simulation through the reconstruction framework (which is called Juggler), do the following:
+
+```
+export JUGGLER_SIM_FILE=sim_output.edm4hep.root JUGGLER_REC_FILE=rec_output.edm4hep.root JUGGLER_N_EVENTS=10
+
+```
+
+Using local builds of the detector and reconstruction software
+---------------------------------------------------------------
+In order to build local copies of the detector, beamline, and reconstruction software, ss discussed [here](https://eic.phy.anl.gov/tutorials/eic_tutorial/getting-started/quickstart#step-2-clone-the-repos), first clone the repositories for the beamline and the athena detector: 
 
 ```
 git clone https://eicweb.phy.anl.gov/EIC/detectors/athena.git
