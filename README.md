@@ -18,19 +18,27 @@ You have now entered into the container and can begin work.
 Using the default detector and reconstruction setup
 ---------------------------------------------------
 In the container, first type
-> source /opt/detector/setup.sh
+```
+source /opt/detector/setup.sh
+```
 
 Running the simulation consists of 2 steps. First, generated particles are passed through the detector and an output ROOT file is created; second, the output ROOT file of the detector simulation step is used as the input to the reconstruction software.
 <br/>
 
 To throw 100 single muon events through the detector, do the following:
-> npsim --compactFile $DETECTOR_PATH/athena.xml --enableGun --gun.distribution uniform --numberOfEvents 100 --outputFile output.edm4hep.root
+```
+npsim --compactFile $DETECTOR_PATH/athena.xml --enableGun --gun.distribution uniform --numberOfEvents 100 --outputFile output.edm4hep.root
+```
 
 To instead generated 100 single particle pi+ events, do the following:
-> npsim --compactFile $DETECTOR_PATH/athena.xml --enableGun --gun.distribution uniform --gun.particle pi+ --numberOfEvents 100 --outputFile output.edm4hep.root
+```
+npsim --compactFile $DETECTOR_PATH/athena.xml --enableGun --gun.distribution uniform --gun.particle pi+ --numberOfEvents 100 --outputFile output.edm4hep.root
+```
 
 If you have the output of an event generator that is saved in HEPMC format, then do the following to run events from that generator through the simulation:
-> npsim --compactFile $DETECTOR_PATH/athena.xml --numberOfEvents 25 --inputFiles input.hepmc --outputFile output.edm4hep.root
+```
+npsim --compactFile $DETECTOR_PATH/athena.xml --numberOfEvents 25 --inputFiles input.hepmc --outputFile output.edm4hep.root
+```
 
 In all these cases, an output file called <i>output.edm4hep.root</i> is created by the detector simulation. This file contains information on the generated and secondary particles, the hit positions in the tracking detectors, the hit positions and energy deposited in the calorimeter cells, and hit information for other detectors.
 <br/>
