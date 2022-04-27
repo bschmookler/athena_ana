@@ -104,3 +104,7 @@ make install
 
 Doing the above will install a bunch of things in your <i>$ATHENA_PREFIX</i> directory. In order to use your local install, instead of sourcing the default <i>setup.sh</i> file, source the [mysetup.sh](https://github.com/bschmookler/athena_ana/blob/main/mysetup.sh) script included with this repository. Then you can simulate events with the same commands as above, but now using your local install of the detector, beamline, and reconstruction software. 
 <br/>
+
+Analyzing the simulation output
+-------------------------------
+Take a look at the [Analysis_examples](https://github.com/bschmookler/athena_ana/tree/main/Analysis_examples) folder in this repository to see some examples of how the analyze the output of the simulation.
