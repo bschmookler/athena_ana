@@ -101,17 +101,17 @@ make
 make install
 ```
 
-Doing the above will install a bunch of things in your <i>$ATHENA_PREFIX</i> directory. In order to use your local install, instead of sourcing the default <i>setup.sh</i> file, source the [mysetup.sh](https://github.com/bschmookler/athena_ana/blob/main/mysetup.sh) script included with this repository. Then you can simulate events with the same commands as above, but now using your local install of the detector, beamline, and reconstruction software. 
+Doing the above will install a bunch of things in your <i>$ATHENA_PREFIX</i> directory. In order to use your local install, instead of sourcing the default <i>setup.sh</i> file, source the [mysetup.sh](mysetup.sh) script included with this repository. Then you can simulate events with the same commands as above, but now using your local install of the detector, beamline, and reconstruction software. 
 <br/>
 
 Analyzing the simulation output
 -------------------------------
-Take a look at the [Analysis_examples](https://github.com/bschmookler/athena_ana/tree/main/Analysis_examples) folder in this repository to see some examples of how the analyze the output of the simulation.
+Take a look at the [Analysis_examples](Analysis_examples) folder in this repository to see some examples of how the analyze the output of the simulation.
 <br/>
 
 Standalone detector example
 ---------------------------
-An example of a simple standalone detector can be found [here](https://github.com/bschmookler/athena_ana/tree/main/Detector_examples/calice). As this detector is implemented using a standard class in the ATHENA framework (<i>ffi_ZDC_Sampling</i>), we do not need to compile anything. Begin by loading the environment
+An example of a simple standalone detector can be found [here](Detector_examples/calice). As this detector is implemented using a standard class in the ATHENA framework (<i>ffi_ZDC_Sampling</i>), we do not need to compile anything. Begin by loading the environment
 ```
 source /opt/detector/setup.sh
 ```
@@ -120,10 +120,16 @@ and then run single particles through the detector as
 npsim --runType run --enableG4GPS --macroFile gps.mac --compactFile samplinghcal.xml --outputFile sim_out.root
 ```
 
-Note how this simulation uses the file [gps.mac](https://github.com/bschmookler/athena_ana/blob/main/Detector_examples/calice/gps.mac) to define the particle generation and number of events to simulate.
+Note how this simulation uses the file [gps.mac](Detector_examples/calice/gps.mac) to define the particle generation and number of events to simulate.
 
+To view the geometry of this standalone dectector, first run this command:
+```
+dd_web_display --export samplinghcal.xml
+```
+and then upload the created ROOT file to this [page](https://eic.phy.anl.gov/geoviewer/). You should be able to see the following picture:
 <br/>
 
 General Documentation
 ---------------------
 The official documentation, including various tutorials, can be found [here](https://eic.phy.anl.gov/tutorials/eic_tutorial/).
+<br/>
