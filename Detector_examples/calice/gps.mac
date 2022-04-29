@@ -18,7 +18,7 @@
 
 #/gps/direction 0 0.1 1.0 
 /gps/ang/type iso
-/gps/ang/mintheta  10 degree
-/gps/ang/maxtheta  170 degree
+/gps/ang/mintheta  150 degree
+/gps/ang/maxtheta  179 degree
 
 /run/beamOn 1000
