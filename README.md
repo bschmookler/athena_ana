@@ -57,7 +57,6 @@ If you want to focus on just the calorimeters, for example, you can run this rec
 export JUGGLER_SIM_FILE=output.edm4hep.root JUGGLER_REC_FILE=rec_cal_output.edm4hep.root JUGGLER_N_EVENTS=10
 gaudirun.py /opt/benchmarks/reconstruction_benchmarks/benchmarks/clustering/options/full_cal_reco.py
 ```
-<br/>
 
 Using local builds of the detector and reconstruction software
 ---------------------------------------------------------------
@@ -108,3 +107,23 @@ Doing the above will install a bunch of things in your <i>$ATHENA_PREFIX</i> dir
 Analyzing the simulation output
 -------------------------------
 Take a look at the [Analysis_examples](https://github.com/bschmookler/athena_ana/tree/main/Analysis_examples) folder in this repository to see some examples of how the analyze the output of the simulation.
+<br/>
+
+Standalone detector example
+---------------------------
+An example of a simple standalone detector can be found [here](https://github.com/bschmookler/athena_ana/tree/main/Detector_examples/calice). As this detector is implemented using a standard class in the ATHENA framework (<i>ffi_ZDC_Sampling</i>), we do not need to compile anything. Begin by loading the environment
+```
+source /opt/detector/setup.sh
+```
+and then run single particles through the detector as
+```
+npsim --runType run --enableG4GPS --macroFile gps.mac --compactFile samplinghcal.xml --outputFile sim_out.root
+```
+
+Note how this simulation uses the file [gps.mac](https://github.com/bschmookler/athena_ana/blob/main/Detector_examples/calice/gps.mac) to define the particle generation and number of events to simulate.
+
+<br/>
+
+General Documentation
+---------------------
+The official documentation, including various tutorials, can be found [here](https://eic.phy.anl.gov/tutorials/eic_tutorial/).
