@@ -127,6 +127,7 @@ To view the geometry of this standalone dectector, first run this command:
 dd_web_display --export samplinghcal.xml
 ```
 and then upload the created ROOT file to this [page](https://eic.phy.anl.gov/geoviewer/). You should be able to see the following picture:
+![detector_geometry](Detector_examples/calice/calice_geometry.png?raw=true)
 <br/>
 
 General Documentation
