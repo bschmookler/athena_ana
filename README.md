@@ -111,7 +111,7 @@ Take a look at the [Analysis_examples](Analysis_examples) folder in this reposit
 
 Standalone detector example
 ---------------------------
-An example of a simple standalone detector can be found [here](Detector_examples/calice). As this detector is implemented using a standard class in the ATHENA framework (<i>ffi_ZDC_Sampling</i>), we do not need to compile anything. Begin by loading the environment
+An example of a simple standalone detector can be found [here](Detector_examples/samplinghcal). As this detector is implemented using a standard class in the ATHENA framework (<i>ffi_ZDC_Sampling</i>), we do not need to compile anything. Begin by loading the environment
 ```
 source /opt/detector/setup.sh
 ```
@@ -127,7 +127,7 @@ To view the geometry of this standalone dectector, first run this command:
 dd_web_display --export samplinghcal.xml
 ```
 and then upload the created ROOT file to this [page](https://eic.phy.anl.gov/geoviewer/). You should be able to see the following picture:
-![detector_geometry](Detector_examples/calice/samplinghcal.png?raw=true)
+![detector_geometry](Detector_examples/samplinghcal/samplinghcal.png?raw=true)
 <br/>
 
 Generation with Beam Effects
