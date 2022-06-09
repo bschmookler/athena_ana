@@ -132,7 +132,7 @@ and then upload the created ROOT file to this [page](https://eic.phy.anl.gov/geo
 
 Generation with Beam Effects
 ----------------------------
-To include the EIC beam effects to generated physics events using this [afterburner](https://eicweb.phy.anl.gov/monte_carlo/afterburner), see this [directory](Beam_effects).
+To include the EIC beam effects to generated physics events using this [afterburner](https://eicweb.phy.anl.gov/monte_carlo/afterburner) utility, see the [Beam_effects](Beam_effects) directory.
 
 General Documentation
 ---------------------
