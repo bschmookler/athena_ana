@@ -106,7 +106,7 @@ Doing the above will install a bunch of things in your <i>$ATHENA_PREFIX</i> dir
 
 Analyzing the simulation output
 -------------------------------
-Take a look at the [Analysis_examples](Analysis_examples) folder in this repository to see some examples of how the analyze the output of the simulation.
+Take a look at the [Analysis_examples](Analysis_examples) folder in this repository to see some examples of how the analyze the output of the simulation. Both ROOT-based macros and an Uproot code are included as examples.
 <br/>
 
 Standalone detector example
@@ -120,15 +120,19 @@ and then run single particles through the detector as
 npsim --runType run --enableG4GPS --macroFile gps.mac --compactFile samplinghcal.xml --outputFile sim_out.root
 ```
 
-Note how this simulation uses the file [gps.mac](Detector_examples/calice/gps.mac) to define the particle generation and number of events to simulate.
+Note how this simulation uses the file [gps.mac](Detector_examples/samplinghcal/gps.mac) to define the particle generation and number of events to simulate.
 
 To view the geometry of this standalone dectector, first run this command:
 ```
 dd_web_display --export samplinghcal.xml
 ```
 and then upload the created ROOT file to this [page](https://eic.phy.anl.gov/geoviewer/). You should be able to see the following picture:
-![detector_geometry](Detector_examples/calice/calice_geometry.png?raw=true)
+![detector_geometry](Detector_examples/calice/samplinghcal.png?raw=true)
 <br/>
+
+Generation with Beam Effects
+----------------------------
+To include the EIC beam effects to generated physics events using this [afterburner](https://eicweb.phy.anl.gov/monte_carlo/afterburner), see this [directory](Beam_effects).
 
 General Documentation
 ---------------------
