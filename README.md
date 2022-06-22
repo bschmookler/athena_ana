@@ -104,6 +104,20 @@ make install
 Doing the above will install a bunch of things in your <i>$ATHENA_PREFIX</i> directory. In order to use your local install, instead of sourcing the default <i>setup.sh</i> file, source the [mysetup.sh](mysetup.sh) script included with this repository. Then you can simulate events with the same commands as above, but now using your local install of the detector, beamline, and reconstruction software. 
 <br/>
 
+If you also plan to modify the EIC data model, do the following:
+
+```
+git clone https://eicweb.phy.anl.gov/EIC/eicd.git
+cd eicd
+mkdir build
+cd build
+cmake ../. -DCMAKE_INSTALL_PREFIX=$ATHENA_PREFIX -DBUILD_DATA_MODEL=ON
+make
+make install
+```
+
+N.B. If you want to push any local changes you make to any of the above repositories, you probably need to clone via SSH instead of HTTPS.
+
 Analyzing the simulation output
 -------------------------------
 Take a look at the [Analysis_examples](Analysis_examples) folder in this repository to see some examples of how the analyze the output of the simulation. Both ROOT-based macros and an Uproot code are included as examples.
