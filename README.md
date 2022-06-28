@@ -102,7 +102,6 @@ make install
 ```
 
 Doing the above will install a bunch of things in your <i>$ATHENA_PREFIX</i> directory. In order to use your local install, instead of sourcing the default <i>setup.sh</i> file, source the [mysetup.sh](mysetup.sh) script included with this repository. Then you can simulate events with the same commands as above, but now using your local install of the detector, beamline, and reconstruction software. 
-<br/>
 
 If you also plan to modify the EIC data model, do the following:
 
@@ -116,7 +115,14 @@ make
 make install
 ```
 
+In order to use this local version of the EIC data model, you will need to add an additional definition during the CMake step:
+```
+cmake .. -DCMAKE_INSTALL_PREFIX=$ATHENA_PREFIX -DEICD_DIR:PATH=$ATHENA_PREFIX/lib/EICD
+```
+
+<br/>
 N.B. If you want to push any local changes you make to any of the above repositories, you probably need to clone via SSH instead of HTTPS.
+<br/>
 
 Analyzing the simulation output
 -------------------------------
