@@ -65,7 +65,7 @@ In order to build local copies of the detector, beamline, and reconstruction sof
 ```
 git clone https://eicweb.phy.anl.gov/EIC/detectors/athena.git
 git clone https://eicweb.phy.anl.gov/EIC/detectors/ip6.git
-ln -s ../ip6/ip6 athena/ip6
+ln -s ./ip6/ip6 athena/ip6
 git clone https://eicweb.phy.anl.gov/EIC/juggler.git
 ```
 
